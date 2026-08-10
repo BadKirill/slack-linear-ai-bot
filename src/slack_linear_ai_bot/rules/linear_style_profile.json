@@ -1,0 +1,13 @@
+{
+  "terminology": {
+    "title_pattern": "[Area] Verb + object",
+    "description_sections": ["Context", "Acceptance Criteria", "Links"]
+  },
+  "formatting": {
+    "markdown": true,
+    "ac_format": "checkbox - [ ]"
+  },
+  "field_order": ["title", "description_md", "labels", "priority", "project_id", "team_id", "team_key"],
+  "forbidden_phrases": ["stuff", "thing", "implement thing", "fix bug"],
+  "examples": []
+}

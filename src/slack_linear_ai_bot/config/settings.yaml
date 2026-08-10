@@ -1,0 +1,56 @@
+app:
+  host: 0.0.0.0
+  port: 8000
+  log_level: INFO
+
+ai:
+  api_key_env: OPENAI_API_KEY
+  model: gpt-5.4
+  reasoning: medium
+  max_output_tokens: 10000
+  request_timeout_seconds: 300
+
+slack:
+  enabled: true
+  bot_token_env: SLACK_BOT_TOKEN
+  signing_secret_env: SLACK_SIGNING_SECRET
+  request_timeout_seconds: 600
+  http_timeout_seconds: 30
+  max_thread_images: 12
+  max_image_bytes: 3000000
+  max_context_chars: 60000
+  thread_message_cap: 28
+  max_reply_chars: 3900
+
+linear:
+  token_env: LINEAR_TOKEN
+  api_url: https://api.linear.app/graphql
+  team_id: ''
+  project_id: ''
+  default_state_id: ''
+  default_labels: []
+  allow_create: true
+  duplicate_title_check: true
+
+writes:
+  enabled: true
+  allow_without_approval: true
+  approval_token: /approve-writes
+
+rules:
+  ai_system: rules/ai_system.md
+  slack: rules/slack_rules.md
+  linear: rules/linear_rules.md
+  linear_style: rules/linear_style_guide.md
+  linear_profile: rules/linear_style_profile.json
+  linear_schema: config/linear_issue.schema.json
+
+routing:
+  teams:
+    Backend: [BE, API, server, database, backend, бэк, бэкенд, сервер, апи, БД]
+    QA: [QA, tests, bugs, тестеры, куа, тестировщики]
+    DevOps: [OPS, infra, deploy, devops, Родя, девопс]
+    Web: [WEB, frontend, UI, web, веб, фронты, веберы, веб апка]
+    Mobile: [MB, mobile, iOS, Android, мобильщики, апка, айос, андройд]
+    Design: [DE, Figma, design, дизайн, дезигн, в дизе, Жека, Алина, дизеры]
+    PM: [PM, product, docs, манагеры, Даша, Санек, пмы, главные]

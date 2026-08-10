@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LinearIssue",
+  "description": "Form used by the AI to prepare a Linear issue",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["title"],
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Clear action-oriented issue title, maximum 140 characters"
+    },
+    "description_md": {
+      "type": "string",
+      "description": "Issue description in Markdown",
+      "default": ""
+    },
+    "labels": {
+      "type": "array",
+      "description": "Existing Linear label names",
+      "items": {"type": "string"},
+      "default": []
+    },
+    "priority": {
+      "type": "integer",
+      "description": "0=None, 1=Urgent, 2=High, 3=Medium, 4=Low",
+      "minimum": 0,
+      "maximum": 4,
+      "default": 0
+    },
+    "project_id": {
+      "type": "string",
+      "description": "Optional Linear project UUID",
+      "default": ""
+    },
+    "team_id": {
+      "type": "string",
+      "description": "Optional Linear team UUID",
+      "default": ""
+    },
+    "team_key": {
+      "type": "string",
+      "description": "Team key or name such as Backend, Web, QA, Mobile, Design, DevOps, or PM",
+      "default": ""
+    }
+  }
+}

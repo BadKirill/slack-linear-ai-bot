@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=75", "wheel>=0.44"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "slack-linear-ai-bot"
+version = "0.1.0"
+description = "Standalone Slack AI bot that prepares and creates Linear issues"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "aiohttp>=3.9,<4",
+  "fastapi>=0.109,<1",
+  "openai>=2.0,<3",
+  "pydantic>=2.12,<3",
+  "python-dotenv>=1.0,<2",
+  "pyyaml>=6.0,<7",
+  "requests>=2.28,<3",
+  "slack-bolt>=1.18,<2",
+  "slack-sdk>=3.27,<4",
+  "tenacity>=8.0,<10",
+  "uvicorn[standard]>=0.27,<1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0,<10",
+  "ruff>=0.15,<1",
+]
+
+[project.scripts]
+slack-linear-ai-bot = "slack_linear_ai_bot.__main__:main"
+
+[tool.setuptools.package-data]
+slack_linear_ai_bot = ["config/*.json", "config/*.yaml", "rules/*.json", "rules/*.md"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["B", "E", "F", "I", "SIM", "UP"]
